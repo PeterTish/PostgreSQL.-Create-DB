@@ -1,6 +1,6 @@
 create table if not exists artist (
 	id serial primary key,
-	nickname varchar(10) unique not null
+	nickname varchar(10) unique not NULL
 );
 
 create table if not exists album (
@@ -20,8 +20,9 @@ create table if not exists track (
 create table if not exists genre (
 	id serial primary key,
 	name varchar(20) unique not null,
-	id_artist integer references artist(id)
 );
+alter table artist add column genre_id integer references genre(id);
+
 
 
 
